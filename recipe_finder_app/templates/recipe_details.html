@@ -1,0 +1,13 @@
+<h1>{{ recipe.title }}</h1>
+<img src="{{ recipe.image.url }}" alt="Recipe Image">
+<p>{{ recipe.description }}</p>
+<p>Ingredients: {{ recipe.ingredients.all|join:", " }}</p>
+<p>Categories: {{ recipe.category.all|join:", " }}</p>
+<p>Instructions: {{ recipe.instructions }}</p>
+<a href="{% url 'like_recipe' recipe.id %}">
+    {% if request.user in recipe.likes.all %}
+        Unlike
+    {% else %}
+        Like
+    {% endif %}
+</a>

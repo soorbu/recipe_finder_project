@@ -1,0 +1,119 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color:#f9e7e5 !important
+}
+
+header {
+    background-color: #cda9c7;
+    height: 150px;
+    text-align: left;
+}
+header img {
+    width: 500px;
+    height: 150px;
+    margin-left: 20px;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    margin-top: 40px;
+    margin-left: 300px;
+}
+
+.left-half {
+    width: 50%;
+}
+
+.right-half {
+    width: 50%;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+input[type="text"], textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f66783;
+    opacity: 0.2;
+}
+
+.ingredient-section {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.ingredient-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.ingredient-row label {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.ingredient-row input[type="text"] {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f66783;
+    opacity: 0.2;
+}
+
+.ingredient-row .quantity-input {
+    width: 100px;
+}
+
+.ingredient-input, .quantity-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f66783;
+    opacity: 0.2;
+}
+
+.ingredient-input {
+    margin-top: 10px;
+    width: 200px;
+}
+
+.quantity-input {
+    margin-top: 10px;
+    width: 250px !important;
+}
+
+.add-ingredient-btn {
+    margin-left: 210px;
+    background-color: #a35fb6;
+    color: #fff;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 105px;
+    cursor: pointer;
+}
+
+.remove-ingredient-btn {
+    margin-left: -10px;
+    background-color: #a35fb6;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.quantity-label {
+    margin-left: 230px; /* or padding-left: 20px; */
+  }

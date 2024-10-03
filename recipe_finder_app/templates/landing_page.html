@@ -1,0 +1,62 @@
+<!-- landing_page.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'flavourfinder/css/style.css' %}">
+    <script src="{% static 'flavourfinder/js/script.js' %}"></script>
+    <style>
+        body {
+            background-image: url('{% static "Main_page.png" %}');  /* Use Django static tag */
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;  /* Align items to the bottom */
+            
+        }
+        
+        .container {
+            text-align: center;
+            padding: 20px;
+            width: 90%;
+            background: rgba(255, 255, 255, 0); 
+            margin-top: 450px ;
+            /* position: absolute;  
+            bottom: 0; 
+            transform: translateY(-200px);          */
+        }
+        
+        .btn {
+            padding: 15px 25px;
+            font-size: 25px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #fff;
+            background-color:#7ea282;
+            border-radius: 40px;
+            transition: background-color 0.3s ease;
+            font-family: 'Brush  Script MT', cursive;
+
+            font-style: oblique;
+        }
+        .btn:hover {
+            background-color: #4c614e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+        <a href="{% url 'login_page' %}" class="btn">Get Started</a>
+        <div class = "cursor-animation">    
+            <img src="{% static 'mouse_click.gif' %}" alt="Cursor animation" style= "width: 50px; height: 50px; margin-left: 10px;"">
+        </div>
+    </div>
+    <!-- <button><a href="{% url 'login_page' %}">Get Started</a></button> -->
+</body>
+</html>

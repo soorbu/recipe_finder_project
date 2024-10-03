@@ -1,0 +1,36 @@
+<h1>Search Results</h1>
+<ul>
+    {% for recipe in recipes %}
+        <li>
+            <h2><a href="{% url 'recipe_details' recipe.id %}">{{ recipe.title }}</a></h2>
+            <img src="{{ recipe.image.url }}" alt="Recipe Image">
+            <p>{{ recipe.description }}</p>
+            <p>Likes: {{ recipe.likes.count }}</p>
+            <a href="{% url 'like_recipe' recipe.id %}">
+                {% if request.user in recipe.likes.all %}
+                    Unlike
+                {% else %}
+                    Like
+                {% endif %}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+<!-- <h1>Search Results</h1>
+<ul>
+    {% for recipe in recipes %}
+        <li>
+            <h2><a href="{% url 'recipe_details' recipe.id %}">{{ recipe.name }}</a></h2>
+            <img src="{{ recipe.image.url }}" alt="Recipe Image">
+            <p>{{ recipe.description }}</p>
+            <p>Likes: {{ recipe.likes.count }}</p>
+            <a href="{% url 'like_recipe' recipe.id %}">
+                {% if request.user in recipe.likes.all %}
+                    Unlike
+                {% else %}
+                    Like
+                {% endif %}
+            </a>
+        </li>
+    {% endfor %}
+</ul> -->

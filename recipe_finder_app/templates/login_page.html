@@ -1,0 +1,80 @@
+<!-- login_page.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <style>
+        body {
+            background-image: url('{% static "login_background.png" %}');  /* Your new background image */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: flex-end;  /* Align content to the right side */
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        form {
+            width: 350px;
+            margin-right: 20%; /* Push the form to the right side */
+        }
+        .form-field {
+            margin: 15px 0;
+        }
+        input[type="text"],input[type="password"] {
+            /* width: 100%; */
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            font-size: 18px;
+        }
+        .form-field input {
+            width: 100%; /* Set the width to 100% of the parent element */
+            box-sizing: border-box; /* Include padding and border in the width calculation */
+        }
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #b3bf44;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-size: 18px;
+        }
+        button:hover {
+            background-color: #7a8230;
+        }
+        a {
+            text-decoration: none;
+            color: #7a8230;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .create-account {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 16px;
+        }
+    </style>
+
+</head>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-field">
+            <input type="text" id="username" name="username" placeholder="   Username">
+        </div>
+        <div class="form-field">
+            <input type="password" id="password" name="password" placeholder="   Password">
+        </div>
+        <button type="submit">Login</button>
+        <p class="create-account">Don't have an account? <a href="{% url 'create_account' %}">Create one</a></p>
+    </form>
+</body>
+</html>

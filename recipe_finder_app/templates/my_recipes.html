@@ -1,0 +1,29 @@
+{% load custom_tags %}
+<h1>My Recipes</h1>
+<ul>
+  {% for recipe in recipes %}
+  <li>
+    <h2>{{ recipe.title }}</h2>
+    {% if recipe.image and not recipe.image.url|startswith:'/media/media/recipe_images/flavour_finder_logo.png' %}
+    <img src="{{ recipe.image.url }}" alt="Recipe Image">
+{% else %}
+    <p>No image available</p>
+{% endif %}
+    <ul>
+      {% for ingredient in recipe.recipeingredient_set.all %}
+      <li>{{ ingredient.ingredient.name }} - {{ ingredient.quantity }}</li>
+      {% endfor %}
+    </ul>
+    <p>Instructions: {{ recipe.instructions }}</p>
+    <p>Description: {{ recipe.description }}</p>
+    <p>
+      Category: {% for category in recipe.category.all %}{{ category.name }}{% if not forloop.last %}, {% endif %}{% endfor %}
+    </p>
+    <form action="{% url 'delete_recipe' recipe.id %}" method="post">
+      {% csrf_token %}
+      <button type="submit">Delete Recipe</button>
+    </form>
+  </li>
+  {% endfor %}
+</ul>
+

@@ -1,0 +1,9 @@
+<form method="post">
+  {% csrf_token %}
+  <input type="text" name="keyword" placeholder="Search for recipes">
+  <select name="search_by">
+      <option value="title">Search by title</option>
+      <option value="ingredients">Search by ingredients</option>
+  </select>
+  <button type="submit">Search</button>
+</form>

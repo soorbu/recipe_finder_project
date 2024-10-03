@@ -1,0 +1,99 @@
+<!-- create_account.html -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <style>
+      /* Background style */
+      body {
+        background-image: url('{% static "newaccount_background.png" %}');
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100vh;
+        margin: 0;
+      }
+
+      /* White translucent box for form */
+      .form-box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #8e4d2592;
+        padding: 20px;
+        width: 440px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        text-align: center; /* Keep this to center align the h2 element */
+      }
+
+      /* Form styles */
+      form {
+        display: inline-block; /* Changed from flex to inline-block */
+      }
+
+      label {
+        text-align: left; /* Changed to left align labels */
+        margin-bottom: 5px;
+        width: 350px; /* Set a fixed width for labels */
+        display: inline-block; /* To make width work */
+        font-size: 18px;
+        color: #562a2a;
+        font-family: Verdana, sans-serif;
+      }
+      h2 {
+        color: #562a2a;
+        font-family: Verdana, sans-serif;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        padding: 10px;
+        margin-bottom: 10px;
+        width: 370px; /* Reduced width to make room for labels */
+        border: none;
+        border-radius: 10px;
+        background-color: #dacec467;
+        font-size: 18px;
+        margin-left: 20px; /* Add this to shift the inputs to the left */
+      }
+
+      input[type="submit"] {
+        background-color: #ef6b48;
+        color: #f1e6dd;
+        padding: 10px 20px;
+        width: 200px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 18px;
+        margin-left: -10px; /* Add this to shift the submit button to the left */
+      }
+
+      input[type="submit"]:hover {
+        background-color: #c65839;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-box">
+      <h2 style="margin-bottom: 20px; font-size: 35px">Sign Up</h2>
+      <form action="{% url 'create_account' %}" method="post">
+        {% csrf_token %} {% if form.errors %}
+        <div style="color: red">{{ form.non_field_errors }}</div>
+        {% endif %} {% for field in form %}
+        <div style="margin-bottom: 10px">
+          {{ field.label_tag }} {{ field }} {% if field.errors %}
+          <div style="color: red">{{ field.errors|join:", " }}</div>
+          {% endif %}
+        </div>
+        {% endfor %}
+        <div style="margin-top: 20px">
+          <input type="submit" value="Sign Up" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

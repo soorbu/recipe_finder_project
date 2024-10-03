@@ -1,0 +1,133 @@
+<!-- <h1>Add Recipe</h1>
+{% load static %}
+<form method="post" enctype="multipart/form-data" id="recipe-form">
+    {% csrf_token %}
+    {{ recipe_form.as_p }}
+    <h2>Ingredients</h2>
+    {{ ingredient_formset.management_form }}
+    <div id="ingredients">
+        {% for form in ingredient_formset %}
+            <div class="ingredient-row">
+                {{ form.as_p }}
+                <button class="remove-btn">Remove</button>
+            </div>
+        {% endfor %}
+    </div>
+    <button type="button" id="add-ingredient-btn">Add Ingredient</button>
+    <button type="submit" id="submit-btn">Add Recipe</button>
+</form>
+
+
+<div class="ingredient-row" style="display: none;">
+    {{ ingredient_formset.empty_form.as_p }}
+    <button class="remove-btn">Remove</button>
+</div>
+
+<script src="{% static 'flavourfinder/js/ingredients.js' %}"></script> -->
+<!-- index.html -->
+<!-- index.html -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Recipe</title>
+    <link rel="stylesheet" href="{% static 'flavourfinder/css/style_add.css' %}">
+</head>
+<body>
+    <header>
+        <img src="{% static 'app_logo.png' %}" alt="Logo">
+    </header>
+    <div class="container">
+        <div class="left-half">
+            <h2>Title</h2>
+            <input type="text" id="title" placeholder="Enter title" style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; width: 100%;">
+            <h2>Description</h2>
+            <textarea id="description" placeholder="Enter description" style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; width: 100%; height: 100px;"></textarea>
+            <div class="ingredient-section">
+                <div class="ingredient-row">
+                    <label class="ingredient-label">Ingredient</label>
+                    <div style="width: 100px;"></div>
+                    <label class="quantity-label">Quantity</label>
+                </div>
+                <div class="ingredient-row">
+                    <input type="text" class="ingredient-input" placeholder="Enter ingredient" style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; width: 300px;">
+                    <div style="width: 100px;"></div>
+                    <input type="text" class="quantity-input" placeholder="Enter quantity" style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; width: 100px;">
+                </div>
+                <div class="ingredient-row">
+                    <button class="add-ingredient-btn" style="background-color: #a35fb6; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Add Ingredient</button>
+                    <div style="width: 100px;"></div>
+                    <button class="remove-ingredient-btn" style="background-color: #a35fb6; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Remove Ingredient</button>
+                </div>
+            </div>
+            <h2>Instructions</h2>
+            <textarea id="instructions" placeholder="Enter instructions" style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; width: 100%; height: 100px;"></textarea>
+        </div>
+        <div class="right-half">
+            <button class="upload-image-btn" style="background-color: #a35fb6; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Upload Image</button>
+        </div>
+    </div>
+    <button class="submit-btn" style="background-color: #a35fb6; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 20px auto; display: block;">Submit</button>
+
+    <script src="{% static 'flavourfinder/js/script_add.js' %}"></script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Recipe</title>
+    <link rel="stylesheet" href="{% static 'flavourfinder/css/style_add.css' %}">
+</head>
+<body>
+    <header>
+        <img src="{% static 'app_logo.png' %}" alt="Logo">
+    </header>
+    <div class="container">
+        <form method="post" enctype="multipart/form-data" id="recipe-form">
+            {% csrf_token %}
+            <h2>Title</h2>
+            {{ recipe_form.title }}
+            <h2>Description</h2>
+            {{ recipe_form.description }}
+            <div class="ingredient-section">
+                <h2>Ingredients</h2>
+                {{ ingredient_formset.management_form }}
+                <div id="ingredients">
+                    {% for form in ingredient_formset %}
+                        <div class="ingredient-row">
+                            <div class="input-fields">
+                                {{ form.as_p }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="ingredient-row" style="display: none;">
+                    <div class="input-fields">
+                        {{ ingredient_formset.empty_form.as_p }}
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button type="button" id="add-ingredient-btn" class="add-ingredient-btn">Add Ingredient</button>
+                    <div style="width: 20px;"></div>
+                    <button class="remove-ingredient-btn">Remove Ingredient</button>
+                </div>
+            </div>
+            <h2>Instructions</h2>
+            {{ recipe_form.instructions }}
+            <h2>Categories</h2>
+            {{ recipe_form.category }}
+            <h2>Image</h2>
+            {{ recipe_form.image }}
+            <button class="submit-btn" style="background-color: #a35fb6; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin: 20px auto; display: block;">Submit</button>
+
+        </form>
+    </div>
+
+    <script src="{% static 'flavourfinder/js/add_recipe.js' %}" defer></script>     
+</body>
+</html>
