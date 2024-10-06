@@ -1,0 +1,14 @@
+<!-- templates/recipe_finder_app/recipe_detail.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ recipe.title }}</title>
+</head>
+<body>
+    <h1>{{ recipe.title }}</h1>
+    <p>{{ recipe.description }}</p>
+    <p>{{ recipe.instructions }}</p>
+    <img src="{{ recipe.imageurl.url }}" alt="{{ recipe.title }}">
+</body>
+</html>
