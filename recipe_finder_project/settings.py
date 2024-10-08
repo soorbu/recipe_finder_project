@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-y2gtx8ad+8(6hv^n$mbc&exrg+x(wpu^s%--7*lvx6s#je)wum
 DEBUG = True
 
 ALLOWED_HOSTS = []
-AUTH_USER_MODEL = 'recipe_finder_app.CustomUser'
+AUTH_USER_MODEL = 'recipe_finder_app.User'
+LOGIN_REDIRECT_URL = 'home_page'
 
 # Application definition
 

@@ -3,12 +3,15 @@ from . import views
 
 urlpatterns = [
     path('', views.landing_page, name='landing_page'),
-    path('login/', views.login_page, name='login_page'),
+    path('login/', views.login_page , name='login_page'),
+    path('home/',views.home_page, name = 'home_page'),
     path('register/', views.register, name='create_account'),
     path('recipe/create/', views.create_recipe, name='create_recipe'),
-    path('ingredient/create/', views.create_ingredient, name='create_ingredient'),
-    path('category/create/', views.create_category, name='create_category'),
-    path('success_user/', views.success_user, name='success_user'),
+    path('search_recipes/', views.search_recipes, name='search_recipes'),
+    path('my_recipes/', views.my_recipes, name='my_recipes'),
+    path('add_recipe/', views.add_recipe, name='add_recipe'),
+    path('logout/', views.logout_user, name='logout'),
+
 ]
 
 

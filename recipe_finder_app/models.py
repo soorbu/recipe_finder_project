@@ -2,26 +2,21 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 import uuid
 
-class CustomUser(AbstractUser):
-    userid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name = models.CharField(max_length=100, blank=True)
 
-
-class User(models.Model):
+class User(AbstractUser):
     userid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    username = models.CharField(max_length=255, unique=True)
     name = models.CharField(max_length=255)
-    password = models.CharField(max_length=255)
 
     def __str__(self):
         return self.username
+
 
 class Recipe(models.Model):
     recipeid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=200)
     description = models.TextField(default="No description available")
     instructions = models.TextField(default="No instructions available")
-    imageurl = models.CharField(max_length=255, default='path/to/default_image.jpg')
+    imageurl = models.ImageField(upload_to='images/', default='path/to/default_image.jpg')
     userid = models.ForeignKey(User, on_delete=models.CASCADE)  # Foreign key to User
 
     def __str__(self):
@@ -33,7 +28,7 @@ class Ingredient(models.Model):
 
 
     def __str__(self):
-        return self.name
+        return self.ingredient
 
 class Category(models.Model):
     recipeid = models.ForeignKey(Recipe, on_delete=models.CASCADE)  # Foreign key to Recipe
